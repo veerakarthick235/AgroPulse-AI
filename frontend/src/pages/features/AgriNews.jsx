@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Sidebar from '../../components/layout/Sidebar';
 import { useAuth } from '../../contexts/AuthContext';
-import axios from 'axios';
+import api from '../../utils/api';
 import { SIDEBAR_LINKS } from '../../config/sidebarLinks';
 import { RefreshCw, ExternalLink, Clock, Globe } from 'lucide-react';
 
@@ -20,7 +20,7 @@ export default function AgriNews() {
   const fetchNews = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('/agri-news');
+      const res = await api.get('/agri-news');
       const articles = res.data?.articles || res.data?.news || res.data || [];
       setNews(Array.isArray(articles) ? articles : []);
     } catch (e) {

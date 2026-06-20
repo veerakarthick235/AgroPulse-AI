@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Sidebar from '../../components/layout/Sidebar';
 import { useAuth } from '../../contexts/AuthContext';
-import axios from 'axios';
+import api from '../../utils/api';
 import { SIDEBAR_LINKS } from '../../config/sidebarLinks';
 import { Send, Bot, User, RotateCcw } from 'lucide-react';
 
@@ -40,7 +40,7 @@ export default function AgroBot() {
     setMessages(m => [...m, { role: 'user', text: question }]);
     setLoading(true);
     try {
-      const res = await axios.post('/ask-agro-assistant', { question });
+      const res = await api.post('/ask-agro-assistant', { question });
       const answer = res.data?.answer || res.data?.response || res.data?.message || 'I could not find an answer. Please try again.';
       setMessages(m => [...m, { role: 'bot', text: answer }]);
     } catch (e) {

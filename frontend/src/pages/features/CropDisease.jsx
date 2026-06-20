@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import Sidebar from '../../components/layout/Sidebar';
 import { useAuth } from '../../contexts/AuthContext';
 import { SIDEBAR_LINKS } from '../../config/sidebarLinks';
-import axios from 'axios';
+import api from '../../utils/api';
 import toast from 'react-hot-toast';
 import {
   Upload, Camera, Leaf, AlertTriangle, CheckCircle,
@@ -95,7 +95,7 @@ export default function CropDisease() {
       fd.append('leaf', image);           // ← correct field name (Flask expects 'leaf')
       fd.append('source', 'upload');
       fd.append('brief', isBrief ? 'true' : 'false');
-      const res = await axios.post('/predict', fd);
+      const res = await api.post('/predict', fd);
       setResultText(res.data.prediction_text || res.data.text || JSON.stringify(res.data));
       setLanguage('English');
     } catch (e) {
@@ -110,7 +110,7 @@ export default function CropDisease() {
     if (!resultText || lang === 'English') return;
     setTranslating(true);
     try {
-      const res = await axios.post('/translate-report', { text: resultText, language: lang });
+      const res = await api.post('/translate-report', { text: resultText, language: lang });
       setResultText(res.data.translated_text);
     } catch { toast.error('Translation failed'); }
     finally { setTranslating(false); }
@@ -141,7 +141,7 @@ export default function CropDisease() {
     setChatMsg('');
     setChatLoading(true);
     try {
-      const res = await axios.post('/ask-leaf-followup', { question: userMsg, report: resultText });
+      const res = await api.post('/ask-leaf-followup', { question: userMsg, report: resultText });
       setChatHistory(h => [...h, { role: 'ai', text: res.data.answer }]);
     } catch { setChatHistory(h => [...h, { role: 'ai', text: 'Sorry, could not get an answer right now.' }]); }
     finally { setChatLoading(false); }

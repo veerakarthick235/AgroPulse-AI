@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Sidebar from '../../components/layout/Sidebar';
 import Navbar from '../../components/layout/Navbar';
 import { useAuth } from '../../contexts/AuthContext';
-import axios from 'axios';
+import api from '../../utils/api';
 import toast from 'react-hot-toast';
 import { SIDEBAR_LINKS } from '../../config/sidebarLinks';
 import { Search, TrendingUp, TrendingDown, Minus } from 'lucide-react';
@@ -32,7 +32,7 @@ export default function MarketPrices() {
     const vegName = customVeg.trim() || veg;
     setLoading(true);
     try {
-      const res = await axios.get(`/prices?vegetable=${encodeURIComponent(vegName)}&location=${encodeURIComponent(location)}`);
+      const res = await api.get(`/prices?vegetable=${encodeURIComponent(vegName)}&location=${encodeURIComponent(location)}`);
       
       let responseData = res.data;
       // Handle the array response from the backend

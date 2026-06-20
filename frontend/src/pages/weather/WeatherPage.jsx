@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Navbar from '../../components/layout/Navbar';
-import axios from 'axios';
+import api from '../../utils/api';
 import toast from 'react-hot-toast';
 import { Search, MapPin, Wind, Droplets, Eye, Thermometer, Gauge, Sunrise, Sunset } from 'lucide-react';
 
@@ -123,13 +123,13 @@ export default function WeatherPage() {
   const fetchWeather = async (targetCity) => {
     setLoading(true);
     try {
-      const res = await axios.get(`/weather?city=${encodeURIComponent(targetCity)}`);
+      const res = await api.get(`/weather?city=${encodeURIComponent(targetCity)}`);
       setWeather(res.data);
 
       // Also fetch advice
       setAdviceLoading(true);
       try {
-        const advRes = await axios.get(`/weather-intelligence?city=${encodeURIComponent(targetCity)}`);
+        const advRes = await api.get(`/weather-intelligence?city=${encodeURIComponent(targetCity)}`);
         setAdvice(advRes.data);
       } catch { }
       finally { setAdviceLoading(false); }

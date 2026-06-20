@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Sidebar from '../../components/layout/Sidebar';
 import { useAuth } from '../../contexts/AuthContext';
-import axios from 'axios';
+import api from '../../utils/api';
 import toast from 'react-hot-toast';
 import { SIDEBAR_LINKS } from '../../config/sidebarLinks';
 import { Sprout, Calculator, ChevronRight, ChevronDown } from 'lucide-react';
@@ -25,7 +25,7 @@ export default function AiPlanner() {
     if (!form.land) { toast.error('Enter land area'); return; }
     setLoading(true);
     try {
-      const res = await axios.post('/planner', form);
+      const res = await api.post('/planner', form);
       setResult(res.data);
       setExpanded(0);
     } catch (e) {
