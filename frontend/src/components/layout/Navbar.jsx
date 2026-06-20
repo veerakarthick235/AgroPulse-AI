@@ -173,7 +173,7 @@ export default function Navbar() {
                               <User size={15} /> My Profile
                             </Link>
                           </>
-
+                        )}
                         <Link to="/features/chatbot" onClick={() => setProfileOpen(false)} className="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
                           🤖 AI Chat
                         </Link>
