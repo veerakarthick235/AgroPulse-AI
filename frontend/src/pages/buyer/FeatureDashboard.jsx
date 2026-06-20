@@ -721,7 +721,7 @@ export default function FeatureDashboard() {
         
         <button
           onClick={() => setIsChatOpen(!isChatOpen)}
-          className="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 hover:scale-110 active:scale-95 transition-all flex items-center justify-center"
+          className="fixed bottom-6 left-6 z-50 p-4 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 hover:scale-110 active:scale-95 transition-all flex items-center justify-center"
           title={isChatOpen ? "Close AI Chat" : "Open AI Chat"}
         >
           {isChatOpen ? (

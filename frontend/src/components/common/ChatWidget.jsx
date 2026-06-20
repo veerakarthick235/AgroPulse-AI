@@ -57,7 +57,7 @@ export default function ChatWidget({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed bottom-24 right-6 z-50 w-80 md:w-96 bg-white rounded-2xl shadow-2xl flex flex-col border border-gray-100 overflow-hidden" style={{ height: '500px', maxHeight: '80vh' }}>
+    <div className="fixed bottom-24 left-6 z-50 w-80 md:w-96 bg-white rounded-2xl shadow-2xl flex flex-col border border-gray-100 overflow-hidden" style={{ height: '500px', maxHeight: '80vh' }}>
       {/* Header */}
       <div className="bg-primary-600 px-4 py-3 flex items-center justify-between shadow-sm">
         <div className="flex items-center gap-2">
