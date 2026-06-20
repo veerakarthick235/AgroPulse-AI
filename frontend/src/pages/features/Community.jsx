@@ -3,10 +3,10 @@ import { useAuth } from '../../contexts/AuthContext';
 import { SIDEBAR_LINKS } from '../../config/sidebarLinks';
 
 const TEAM = [
-  { name: 'Lokesh',   role: 'Full Stack Developer',    emoji: '👨‍💻', bio: 'Led the architecture and React migration of the platform.' },
-  { name: 'Sarjan',   role: 'Backend & AI Integration', emoji: '🤖', bio: 'Built the Flask AI engine and Gemini API integrations.' },
-  { name: 'Nishanth', role: 'UI/UX & Frontend',         emoji: '🎨', bio: 'Designed the user experience and component library.' },
-  { name: 'Karthick', role: 'Data & Market Features',   emoji: '📊', bio: 'Developed market prices, weather, and data pipelines.' },
+  { name: 'Karthickkumar',   role: 'Full Stack Developer',    emoji: '👨‍💻', bio: 'Led the architecture and React migration of the platform.' },
+  { name: 'Gopika',   role: 'Backend & AI Integration', emoji: '🤖', bio: 'Built the Flask AI engine and Gemini API integrations.' },
+  { name: 'Priyadharshini', role: 'UI/UX & Frontend',         emoji: '🎨', bio: 'Designed the user experience and component library.' },
+  { name: 'VinithPrakash', role: 'Data & Market Features',   emoji: '📊', bio: 'Developed market prices, weather, and data pipelines.' },
 ];
 
 const MENTORS = [
