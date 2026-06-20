@@ -188,26 +188,6 @@ def add_product():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@admin_bp.route('/products/<product_id>', methods=['PUT'])
-@require_admin
-def update_product(product_id):
-    data = request.get_json()
-    try:
-        data['updatedAt'] = datetime.utcnow()
-        db.products.update_one({'_id': ObjectId(product_id)}, {'$set': data})
-        return jsonify({'success': True})
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-@admin_bp.route('/products/<product_id>', methods=['DELETE'])
-@require_admin
-def delete_product(product_id):
-    try:
-        db.products.delete_one({'_id': ObjectId(product_id)})
-        return jsonify({'success': True})
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
 
 
 @admin_bp.route('/products/<product_id>', methods=['PUT'])
