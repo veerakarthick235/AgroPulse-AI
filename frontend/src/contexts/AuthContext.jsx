@@ -16,6 +16,7 @@ export function AuthProvider({ children }) {
         try {
           const res = await api.get('/api/auth/profile');
           const profile = res.data.profile;
+          if (profile.role === 'seller') profile.role = 'buyer';
           setUser({ uid: profile.id, email: profile.email });
           setUserProfile(profile);
         } catch (error) {
@@ -40,6 +41,7 @@ export function AuthProvider({ children }) {
     const { token, user: profile } = res.data;
     
     localStorage.setItem('token', token);
+    if (profile.role === 'seller') profile.role = 'buyer';
     setUser({ uid: profile.id, email: profile.email });
     setUserProfile(profile);
     return res;
@@ -51,6 +53,7 @@ export function AuthProvider({ children }) {
     const { token, user: profile } = res.data;
     
     localStorage.setItem('token', token);
+    if (profile.role === 'seller') profile.role = 'buyer';
     setUser({ uid: profile.id, email: profile.email });
     setUserProfile(profile);
     return res;
@@ -63,6 +66,7 @@ export function AuthProvider({ children }) {
     const { token, user: profile } = res.data;
     
     localStorage.setItem('token', token);
+    if (profile.role === 'seller') profile.role = 'buyer';
     setUser({ uid: profile.id, email: profile.email });
     setUserProfile(profile);
     return res;
@@ -80,7 +84,9 @@ export function AuthProvider({ children }) {
   const refreshProfile = async () => {
     try {
       const res = await api.get('/api/auth/profile');
-      setUserProfile(res.data.profile);
+      const profile = res.data.profile;
+      if (profile.role === 'seller') profile.role = 'buyer';
+      setUserProfile(profile);
     } catch (e) {
       console.error(e);
     }

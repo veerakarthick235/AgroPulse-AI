@@ -549,7 +549,7 @@ export default function Landing() {
                 transition={{ delay:1.35 }}
                 style={{ display:'flex', gap:18, flexWrap:'wrap' }}
               >
-                {['🛡️ Razorpay Payments','⚡ MongoDB Atlas','🧠 Gemini AI'].map(t => (
+                {['🛡️ Razorpay Payments','⚡ MongoDB Atlas','🧠 AI'].map(t => (
                   <span key={t} style={{ fontSize:'0.78rem', fontWeight:500, color: dark?'rgba(255,255,255,0.45)':'rgba(0,0,0,0.45)' }}>{t}</span>
                 ))}
               </motion.div>
