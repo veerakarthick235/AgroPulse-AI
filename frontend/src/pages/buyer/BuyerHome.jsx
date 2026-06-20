@@ -211,9 +211,7 @@ export default function BuyerHome() {
                 <p className="text-primary-200 text-sm">Direct from local farmers — no middlemen, fair prices</p>
               </div>
               <div className="flex items-center gap-2 mt-1">
-                <button onClick={() => navigate('/become-seller')} className="hidden sm:flex items-center gap-1 bg-yellow-400 hover:bg-yellow-500 text-yellow-950 text-xs font-bold px-3 py-1.5 rounded-full transition-all shadow-md cursor-pointer">
-                  🛒 Sell Your Product
-                </button>
+
                 <button onClick={() => setWishlistOpen(true)} className="hidden sm:flex items-center gap-1 bg-white/20 hover:bg-white/30 text-white text-xs font-bold px-3 py-1.5 rounded-full transition-all cursor-pointer">
                   <Heart size={12} /> Wishlist
                 </button>

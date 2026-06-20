@@ -111,6 +111,7 @@ function AppRoutes() {
       <Route path="/orders"                   element={<PrivateRoute allowedRoles={['buyer']}><BuyerOrders /></PrivateRoute>} />
       <Route path="/orders/:orderId"          element={<PrivateRoute allowedRoles={['buyer']}><OrderTracking /></PrivateRoute>} />
       <Route path="/profile"                  element={<PrivateRoute allowedRoles={['buyer']}><BuyerProfile /></PrivateRoute>} />
+      <Route path="/become-seller"            element={<Navigate to="/dashboard" replace />} />
       <Route path="/:section"                 element={<PrivateRoute allowedRoles={['buyer']}><FeatureDashboard /></PrivateRoute>} />
 
       {/* ── Admin ────────────────────────────────────────────────────── */}
