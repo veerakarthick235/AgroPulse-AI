@@ -96,6 +96,13 @@ export default function Checkout() {
       });
       const data = response.data;
 
+      // Automatically mock successful payment if backend is missing Razorpay keys
+      if (data.razorpay_order_id?.startsWith('mock_')) {
+        toast.success('Development Mode: Simulating successful payment');
+        await placeOrderAPI(data.razorpay_order_id, 'mock_payment_id_' + Date.now());
+        return;
+      }
+
       const options = {
         key:         import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_test_placeholder',
         amount:      total * 100,
