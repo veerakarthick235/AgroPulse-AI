@@ -85,4 +85,3 @@ Built for NIT Project by:
 * Gopika
 * Priyadharshini
 * Vinithprakash
-* **Mentors:** Dr. P. Thangavelu (Principal) & Dr. R. Senthil Kumar (HOD)
